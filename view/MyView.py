@@ -1,0 +1,98 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'MyView.ui'
+#
+# Created by: PyQt5 UI code generator 5.13.1
+#
+# WARNING! All changes made in this file will be lost!
+
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(822, 413)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
+        MainWindow.setSizePolicy(sizePolicy)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.v_main_layout = QtWidgets.QVBoxLayout()
+        self.v_main_layout.setObjectName("v_main_layout")
+        self.h_head_layout = QtWidgets.QHBoxLayout()
+        self.h_head_layout.setObjectName("h_head_layout")
+        self.betrag_label = QtWidgets.QLabel(self.centralwidget)
+        self.betrag_label.setObjectName("betrag_label")
+        self.h_head_layout.addWidget(self.betrag_label)
+        self.betrag_box = QtWidgets.QSpinBox(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.betrag_box.sizePolicy().hasHeightForWidth())
+        self.betrag_box.setSizePolicy(sizePolicy)
+        self.betrag_box.setMinimumSize(QtCore.QSize(80, 0))
+        self.betrag_box.setMaximum(999999999)
+        self.betrag_box.setObjectName("betrag_box")
+        self.h_head_layout.addWidget(self.betrag_box)
+        self.waehrung_label = QtWidgets.QLabel(self.centralwidget)
+        self.waehrung_label.setObjectName("waehrung_label")
+        self.h_head_layout.addWidget(self.waehrung_label)
+        self.waehrung_input_box = QtWidgets.QLineEdit(self.centralwidget)
+        self.waehrung_input_box.setObjectName("waehrung_input_box")
+        self.h_head_layout.addWidget(self.waehrung_input_box)
+        self.Zielwaehrung_label = QtWidgets.QLabel(self.centralwidget)
+        self.Zielwaehrung_label.setObjectName("Zielwaehrung_label")
+        self.h_head_layout.addWidget(self.Zielwaehrung_label)
+        self.Zielwaehrung_input_box = QtWidgets.QLineEdit(self.centralwidget)
+        self.Zielwaehrung_input_box.setObjectName("Zielwaehrung_input_box")
+        self.h_head_layout.addWidget(self.Zielwaehrung_input_box)
+        self.umrechnen_button = QtWidgets.QPushButton(self.centralwidget)
+        self.umrechnen_button.setObjectName("umrechnen_button")
+        self.h_head_layout.addWidget(self.umrechnen_button)
+        self.live_data_checkbox = QtWidgets.QCheckBox(self.centralwidget)
+        self.live_data_checkbox.setCheckable(True)
+        self.live_data_checkbox.setChecked(True)
+        self.live_data_checkbox.setObjectName("live_data_checkbox")
+        self.h_head_layout.addWidget(self.live_data_checkbox)
+        self.v_main_layout.addLayout(self.h_head_layout)
+        self.output_textfield = QtWidgets.QTextBrowser(self.centralwidget)
+        self.output_textfield.setObjectName("output_textfield")
+        self.v_main_layout.addWidget(self.output_textfield)
+        self.h_footer_layout = QtWidgets.QHBoxLayout()
+        self.h_footer_layout.setObjectName("h_footer_layout")
+        self.exit_button = QtWidgets.QPushButton(self.centralwidget)
+        self.exit_button.setObjectName("exit_button")
+        self.h_footer_layout.addWidget(self.exit_button)
+        self.reset_button = QtWidgets.QPushButton(self.centralwidget)
+        self.reset_button.setObjectName("reset_button")
+        self.h_footer_layout.addWidget(self.reset_button)
+        self.v_main_layout.addLayout(self.h_footer_layout)
+        self.verticalLayout.addLayout(self.v_main_layout)
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+
+        self.retranslateUi(MainWindow)
+        self.exit_button.clicked.connect(MainWindow.close)
+        self.reset_button.clicked.connect(self.waehrung_input_box.clear)
+        self.reset_button.clicked.connect(self.Zielwaehrung_input_box.clear)
+        self.reset_button.clicked.connect(self.betrag_box.clear)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.betrag_label.setText(_translate("MainWindow", "Betrag:"))
+        self.waehrung_label.setText(_translate("MainWindow", "Währung:"))
+        self.Zielwaehrung_label.setText(_translate("MainWindow", "Zielwährung:"))
+        self.umrechnen_button.setText(_translate("MainWindow", "Umrechnen"))
+        self.live_data_checkbox.setText(_translate("MainWindow", "Live-Daten"))
+        self.exit_button.setText(_translate("MainWindow", "Exit"))
+        self.reset_button.setText(_translate("MainWindow", "Zurücksetzen"))
