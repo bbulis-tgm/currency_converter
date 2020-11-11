@@ -12,7 +12,7 @@ class CurrencyResult:
         return "<li><b>{:.2f} {}</b> (Kurs: {:f}</li>".format(self._value, self._name, self._wechselkurs)
 
 
-class ClacResult:
+class CalcResult:
 
     def __init__(self, _value: float, _from: str, _to: List[CurrencyResult], _date: str):
         self._value = _value
