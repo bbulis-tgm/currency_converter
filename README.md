@@ -41,3 +41,6 @@ Sie wurden beauftragt, eine schlanke grafische Oberfläche für einen Währungsu
     * Zeigt das Ergebnis im Ausgabefeld an und aktualisiert die Statusleiste
   * Checkbox
     * Wechselt je nach Checked-Status die Strategie auf RESTful-Service bzw. lokales Service
+
+## Entwicklung 
+Coming soon
