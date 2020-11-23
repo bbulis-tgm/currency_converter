@@ -62,4 +62,4 @@ class LocalStrategy(BaseClass):
             for s in _to:
                 ret.append(CurrencyResult(s, rates_only[s], rates_only[s] * _eur))
 
-        return ret
+        return CalcResult(_value, _from, ret, self.data['date'])
