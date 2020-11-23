@@ -6,6 +6,10 @@ from model.LocalStrategy import LocalStrategy
 
 
 class Controller(QtWidgets.QMainWindow, Ui_MainWindow):
+    """
+    Controller Klasse verbindet View und Model
+    Alle Funktionen werden mit der GUI Verbunden
+    """
 
     def set_statusbar(self, message: str, time: int = 3000):
         """
