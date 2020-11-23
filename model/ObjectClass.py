@@ -24,7 +24,7 @@ class CurrencyResult:
 
         :return: Daten des Objekts als HTML-Listen Format
         """
-        return "<li><b>{:.2f} {}</b> (Kurs: {:f}</li>".format(self._value, self._name, self._wechselkurs)
+        return "<li><b>{:.2f} {}</b> (Kurs: {:f})</li>".format(self._value, self._name, self._wechselkurs)
 
 
 class CalcResult:
