@@ -1,12 +1,15 @@
 from typing import List
-from model.BaseClass import BaseClass
 import requests
 
+from model.BaseClass import BaseClass
 from model.ObjectClass import CurrencyResult
 from model.ObjectClass import CalcResult
 
 
 class LiveStrategy(BaseClass):
+    """
+    Klasse führt die Online Umrechnung der Währungen durch
+    """
 
     def __init__(self, url="https://api.exchangeratesapi.io/latest"):
         """
