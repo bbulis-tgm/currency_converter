@@ -23,6 +23,17 @@ class Controller(QtWidgets.QMainWindow, Ui_MainWindow):
         """
         self.ui.statusbar.showMessage(message, time)
 
+    def set_output(self, message: str):
+        """
+        Methode leer das Output-Field wenn diese aufgerufen wird
+        Danach wird der neue Inhalt (Berechnungen in die Ziel-Währungen) dem Output-Field hinzugefügt
+
+        :param message: Der Inhalt welcher angezeigt werden soll
+        :return: ---
+        """
+        self.ui.output_textfield.clear()
+        self.ui.output_textfield.append(message)
+
     def change_strategy(self, checked: bool):
         """
         Die Strategy, welche zum Berechnen genutzt wird wird mit dem Benutzen der Checkbox gewechselt
