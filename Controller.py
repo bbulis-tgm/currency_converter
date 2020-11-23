@@ -19,7 +19,7 @@ class Controller(QtWidgets.QMainWindow, Ui_MainWindow):
 
         :param message: Die Nachricht, welche in der Statusleiste angezeigt werden soll
         :param time: Die Zeit, wie lange die Meldung angezeigt werden soll. Standardeinstellung sind 3000ms
-        :return: ---
+        :return:
         """
         self.ui.statusbar.showMessage(message, time)
 
@@ -29,10 +29,36 @@ class Controller(QtWidgets.QMainWindow, Ui_MainWindow):
         Danach wird der neue Inhalt (Berechnungen in die Ziel-Währungen) dem Output-Field hinzugefügt
 
         :param message: Der Inhalt welcher angezeigt werden soll
-        :return: ---
+        :return:
         """
         self.ui.output_textfield.clear()
         self.ui.output_textfield.append(message)
+
+    def get_input(self):
+        """
+        Holt die Eingaben aus den Eingabefeldern der GUI und setzt diese Global für das Objekt
+        _to Eingabe wird überprüft und in eine Liste aufgespalten
+
+        :return:
+        """
+        self._value = self.ui.betrag_box.value()
+        self._from = self.ui.waehrung_input_box.text().strip().upper()
+        _to_str = self.ui.Zielwaehrung_input_box.text().strip().upper()
+        self._to = list(map(lambda s: s.strip(), _to_str.split(","))) if _to_str else []
+
+    def check_input(self):
+        """
+        Methode überprüft ob Währungen alle 3 Zeichen haben
+
+        :raise: Fehler wenn Währung nicht 3 Zeichen lang ist
+        :return:
+        """
+        if len(self._from) != 3:
+            raise Exception("Basis Währung muss 3 Zeichen lang sein")
+
+        for i in self._to:
+            if len(i) != 3:
+                raise Exception("Ziel Währung/Währungen muss 3 Zeichen lang sein")
 
     def change_strategy(self, checked: bool):
         """
@@ -40,12 +66,29 @@ class Controller(QtWidgets.QMainWindow, Ui_MainWindow):
         Von der checkbox wird ein Boolean zurückgegeben welcher mittels einer IF-Anweisung die Strategy wechselt
 
         :param checked: Der Boolean welcher von der Checkbox zurück gegeben wird
-        :return: ---
+        :return:
         """
         self.strategy = LiveStrategy() if checked else LocalStrategy()
 
     def calc(self):
-        pass
+        """
+        Methode welche die Berechnung der Währungen startet
+        Sollte ein Fehler auftreten so wird dieser in die Statusleiste des Fensters geschrieben
+
+        :return:
+        """
+        self.get_input()
+
+        try:
+            self.check_input()
+        except Exception as e:
+            self.set_statusbar(str(e))
+
+        try:
+            ret = self.strategy.calculate(self._value, self._from, self._to)
+            self.set_output(str(ret))
+        except Exception as e:
+            self.set_statusbar(str(e))
 
     def __init__(self):
         """
@@ -58,6 +101,9 @@ class Controller(QtWidgets.QMainWindow, Ui_MainWindow):
         self.ui.live_data_checkbox.clicked.connect(self.change_strategy)
         self.ui.umrechnen_button.clicked.connect(self.calc)
 
+        self._from = ""
+        self._to = []
+        self._value = 0
         self.strategy = LiveStrategy()
 
 
