@@ -40,7 +40,7 @@ class Controller(QtWidgets.QMainWindow, Ui_MainWindow):
         """
         Init Methode startet das Programm und verbindet die einzelnen Knöpfe mit ihren Funktionen
         """
-        super().__init__(self)
+        super().__init__(None)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
