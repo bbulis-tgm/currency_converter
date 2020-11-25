@@ -3,6 +3,11 @@ from abc import abstractmethod
 from typing import List
 
 class BaseClass(ABC):
+    """
+    Basis Klasse von welcher die Strategien erben
+
+    :author: Benjamin Bulis
+    """
 
     @abstractmethod
     def calculate(self, _value: float, _from: str, _to: List[str]):

@@ -9,6 +9,8 @@ class Controller(QtWidgets.QMainWindow, Ui_MainWindow):
     """
     Controller Klasse verbindet View und Model
     Alle Funktionen werden mit der GUI Verbunden
+
+    :author: Benjamin Bulis
     """
 
     def set_statusbar(self, message: str, time: int = 3000):

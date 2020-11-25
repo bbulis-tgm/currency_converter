@@ -9,6 +9,8 @@ from model.ObjectClass import CurrencyResult
 class LocalStrategy(BaseClass):
     """
     Klasse führt die Offline Umrechnung der Währungen durch
+
+    :author: Benjamin Bulis
     """
 
     def __init__(self, path="./local_data.json"):

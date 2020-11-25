@@ -9,6 +9,8 @@ from model.ObjectClass import CalcResult
 class LiveStrategy(BaseClass):
     """
     Klasse führt die Online Umrechnung der Währungen durch
+
+    :author: Benjamin Bulis
     """
 
     def __init__(self, url="https://api.exchangeratesapi.io/latest"):

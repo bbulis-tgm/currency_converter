@@ -4,6 +4,8 @@ from typing import List
 class CurrencyResult:
     """
     Object beinhaltet den Namen der Währung, den Wechselkurs und den berechneten Betrag mit dem Wechselkurs
+
+    :author: Benjamin Bulis
     """
 
     def __init__(self, _name: str, _wechselkurs: float, _value: float):
